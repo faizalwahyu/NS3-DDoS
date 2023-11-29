@@ -10,7 +10,8 @@ using namespace ns3;
 
 int main(int argc, char *argv[]) {
     // Command line parameters
-    uint32_t nNodes = 300;  // Jumlah perangkat yang terlibat di atur disini
+    uint32_t nNodes = 1000;  
+    // Jumlah perangkat yang terlibat di atur nNodes mulai dari 1000,2500,5000, 7500, 10.000
     uint32_t nNodesfix=nNodes+2;
     CommandLine cmd;
     cmd.AddValue("nNodes", "Number of nodes", nNodes);
@@ -40,7 +41,7 @@ int main(int argc, char *argv[]) {
     //IP 10.0.1.7 = 262 (Web Server)
     //IP 10.0.1.6 = 261 (Nginx)
     //IP 10.0.1.4 = 259 (HAProxy)
-    uint32_t serverNodeIndex = 257; // Jika <100 node maka index 3 Jika >255 node maka index 259
+    uint32_t serverNodeIndex = 262; // Jika <100 node maka index 3 Jika >255 node maka index 259
     ApplicationContainer serverApp = server.Install(nodes.Get(serverNodeIndex));
     serverApp.Start(Seconds(0.0));
     serverApp.Stop(Seconds(10.0));

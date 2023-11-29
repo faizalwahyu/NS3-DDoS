@@ -13,8 +13,10 @@ int main(int argc, char *argv[]) {
     uint32_t nNodes = 1000;  
     // Jumlah perangkat yang terlibat di atur nNodes mulai dari 1000,2500,5000, 7500, 10.000
     uint32_t nNodesfix=nNodes+2;
+    uint32_t serverNodeIndex = 262;
     CommandLine cmd;
     cmd.AddValue("nNodes", "Number of nodes", nNodes);
+    cmd.AddValue("serverNodeIndex", "Target IP", nNodes);
     cmd.Parse(argc, argv);
 
     // Membuat jumlah node
@@ -23,7 +25,7 @@ int main(int argc, char *argv[]) {
 
     // Install protokol CSMA
     CsmaHelper csma;
-    csma.SetChannelAttribute("DataRate", DataRateValue(DataRate("100Mbps")));
+    csma.SetChannelAttribute("DataRate", DataRateValue(DataRate("1Gbps")));
     NetDeviceContainer devices = csma.Install(nodes);
 
     // Install internet stack on nodes
@@ -36,12 +38,12 @@ int main(int argc, char *argv[]) {
     Ipv4InterfaceContainer interfaces = address.Assign(devices);
 
     // Create UDP server application
-    uint16_t serverPort = 0;
+    uint16_t serverPort = 12345;
     UdpServerHelper server(serverPort);
     //IP 10.0.1.7 = 262 (Web Server)
     //IP 10.0.1.6 = 261 (Nginx)
     //IP 10.0.1.4 = 259 (HAProxy)
-    uint32_t serverNodeIndex = 262; // Jika <100 node maka index 3 Jika >255 node maka index 259
+    //uint32_t serverNodeIndex = 262; // Jika <100 node maka index 3 Jika >255 node maka index 259
     ApplicationContainer serverApp = server.Install(nodes.Get(serverNodeIndex));
     serverApp.Start(Seconds(0.0));
     serverApp.Stop(Seconds(10.0));

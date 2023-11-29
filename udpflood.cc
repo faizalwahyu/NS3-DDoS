@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     uint32_t serverNodeIndex = 262;
     CommandLine cmd;
     cmd.AddValue("nNodes", "Number of nodes", nNodes);
-    cmd.AddValue("Target IP in index", "Target IP", serverNodeIndex);
+    cmd.AddValue("serverNodeIndex", "Target IP", serverNodeIndex);
     cmd.Parse(argc, argv);
 
     // Membuat jumlah node

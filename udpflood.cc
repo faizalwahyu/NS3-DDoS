@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     uint32_t serverNodeIndex = 262;
     CommandLine cmd;
     cmd.AddValue("nNodes", "Number of nodes", nNodes);
-    cmd.AddValue("serverNodeIndex", "Target IP", nNodes);
+    cmd.AddValue("Target IP in index", "Target IP", serverNodeIndex);
     cmd.Parse(argc, argv);
 
     // Membuat jumlah node
@@ -74,9 +74,9 @@ int main(int argc, char *argv[]) {
     std::string nNodesString = std::to_string(nNodes);
 
     // Menggabungkan string "CBNS/udpflood" dengan nilai variabel nNodesString
-    std::string animationname = "CBNS/udpflood" + nNodesString + "Nodes.xml";
+    //std::string animationname = "CBNS/udpflood" + nNodesString + "Nodes.xml";
     
- //   AnimationInterface anim(animationname);
+    //   AnimationInterface anim(animationname);
     //anim.EnablePacketMetadata("csma/udp_multiple", true, false);
     //ns3::AnimationInterface::SetConstantPosition(nodes.Get(0), 0, 0);
     ns3::AnimationInterface::SetConstantPosition(nodes.Get(serverNodeIndex), 0, 20, 0);

@@ -5,8 +5,8 @@ Hasil dari simulasi tersebut berupa output pcap yang akan digunakan untuk analis
 Untuk running file, bisa create folder dengan nama CBNS terlebih dahulu, output pcap akan disana, dan hanya akan muncul 1 file pcap
 Yang dijalankan file udpflood.cc
 
-Untuk modifikasi nNodes bisa menggunakan sintax ./ns3 run "scratch/CBNSUDPFlood.cc --nNodes=1000 --serverNodeIndex=262""
-Bisa diganti parameter nNodes menjadi 2500, 5000, 7500, dan 10.000
+Untuk modifikasi nNodes bisa menggunakan sintax ./ns3 run "scratch/CBNSUDPFlood.cc --nNodes=500 --serverNodeIndex=262""
+Bisa diganti parameter nNodes menjadi 500, 1000, 5000, dan 10.000
 Untuk parameter serverNodeIndex = 
 IP 10.0.1.7 = 262 (Web Server) Faizal
 IP 10.0.1.6 = 261 (Nginx) Azza

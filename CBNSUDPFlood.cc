@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
     // Install protokol CSMA
     CsmaHelper csma;
-    csma.SetChannelAttribute("DataRate", DataRateValue(DataRate("1Gbps")));
+    csma.SetChannelAttribute("DataRate", DataRateValue(DataRate("10Mbps")));
     NetDeviceContainer devices = csma.Install(nodes);
 
     // Install internet stack on nodes
@@ -50,14 +50,14 @@ int main(int argc, char *argv[]) {
 
     // Create UDP client applications
     UdpClientHelper client(interfaces.GetAddress(serverNodeIndex), serverPort);
-    client.SetAttribute("MaxPackets", UintegerValue(nNodes));
-    client.SetAttribute("Interval", TimeValue(Seconds(1.0)));
+    client.SetAttribute("MaxPackets", UintegerValue(1000));
+    client.SetAttribute("Interval", TimeValue(Seconds(1)));
     client.SetAttribute("PacketSize", UintegerValue(1024));
 
     for (uint32_t i = 1; i < nNodesfix; ++i) {
         ApplicationContainer clientApp = client.Install(nodes.Get(i));
         clientApp.Start(Seconds(1.0));
-        clientApp.Stop(Seconds(60.0));
+        clientApp.Stop(Seconds(240.0));
     }
     
     MobilityHelper mobility;

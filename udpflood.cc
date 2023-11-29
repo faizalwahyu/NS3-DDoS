@@ -10,14 +10,14 @@ using namespace ns3;
 
 int main(int argc, char *argv[]) {
     // Command line parameters
-    uint32_t nNodes = 1000;  
+    uint32_t nNodes;  
     // Jumlah perangkat yang terlibat di atur nNodes mulai dari 1000,2500,5000, 7500, 10.000
-    uint32_t nNodesfix=nNodes+2;
-    uint32_t serverNodeIndex = 262;
+    uint32_t serverNodeIndex;
     CommandLine cmd;
     cmd.AddValue("nNodes", "Number of nodes", nNodes);
     cmd.AddValue("serverNodeIndex", "Target IP", serverNodeIndex);
     cmd.Parse(argc, argv);
+    uint32_t nNodesfix=nNodes+2;
 
     // Membuat jumlah node
     NodeContainer nodes;

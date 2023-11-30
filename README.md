@@ -6,7 +6,7 @@ Untuk running file, bisa create folder dengan nama CBNS terlebih dahulu, output 
 Yang dijalankan file udpflood.cc
 
 Untuk modifikasi nNodes bisa menggunakan sintax ./ns3 run "scratch/CBNSUDPFlood.cc --nNodes=500 --serverNodeIndex=262""
-Bisa diganti parameter nNodes menjadi 500, 1000, 5000, dan 10.000
+Bisa diganti parameter nNodes menjadi 500, 1000, 1500, dan 2000
 Untuk parameter serverNodeIndex = 
 IP 10.0.1.7 = 262 (Web Server) Faizal
 IP 10.0.1.6 = 261 (Nginx) Azza

@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     Ipv4InterfaceContainer interfaces = address.Assign(devices);
 
     // Create UDP server application
-    uint16_t serverPort = 12345;
+    uint16_t serverPort = 80;
     UdpServerHelper server(serverPort);
     //IP 10.0.1.7 = 262 (Web Server)
     //IP 10.0.1.6 = 261 (Nginx)
